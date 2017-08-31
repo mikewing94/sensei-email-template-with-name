@@ -1,6 +1,6 @@
 <?php
 /**
- * Teacher completed course email
+ * Learner completed course email
  *
  * @author WooThemes
  * @package Sensei/Templates/Emails/HTML
@@ -26,16 +26,10 @@ $large = "text-align: center !important;font-size: 350% !important;line-height: 
 
 <?php do_action( 'sensei_before_email_content', $template ); ?>
 
-<p style="<?php echo esc_attr( $small ); ?>"><?php _e( 'Your student', 'woothemes-sensei' ); ?></p>
+<p style="<?php echo esc_attr( $small ); ?>"><?php echo "Congratulations! "; $user = get_user_by( 'id', $learner_id ); echo '' . $user->first_name . ' ' . $user->last_name; ?><?php printf( __( ' You have completed and %1$s the course', 'woothemes-sensei' ), $passed ); ?></p>
 
-<h2 style="<?php echo esc_attr( $small ); ?>"><?php echo 'Unique ID:', $learner_id; ?></h2>
+<h2 style="<?php echo esc_attr( $large ); ?>"><?php echo get_the_title( $course_id ); ?> <?php echo " On ".$today = date("d-m-y");?></h2>
 
-<h2 style="<?php echo esc_attr( $large ); ?>"><?php $user = get_user_by( 'id', $learner_id ); echo '' . $user->first_name . ' ' . $user->last_name; ?></h2>
-
-<p style="<?php echo esc_attr( $small ); ?>"><?php printf( __( 'has completed and %1$s the course', 'woothemes-sensei' ), $passed ); ?></p>
-
-<h2 style="<?php echo esc_attr( $large ); ?>"><?php echo get_the_title( $course_id ); ?></h2>
-
-<hr/>
+<p>Please save this email and print for your records. This is your certificate of completion.</p>
 
 <?php do_action( 'sensei_after_email_content', $template ); ?>

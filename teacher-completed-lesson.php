@@ -32,9 +32,9 @@ $large = "text-align: center !important;font-size: 350% !important;line-height: 
 
 <h2 style="<?php echo esc_attr( $large ); ?>"><?php $user = get_user_by( 'id', $learner_id ); echo '' . $user->first_name . ' ' . $user->last_name; ?></h2>
 
-<p style="<?php echo esc_attr( $small ); ?>"><?php printf( __( 'has completed and %1$s the course', 'woothemes-sensei' ), $passed ); ?></p>
+<p style="<?php echo esc_attr( $small ); ?>"><?php echo( __( 'has completed the lesson', 'woothemes-sensei' ) ); ?></p>
 
-<h2 style="<?php echo esc_attr( $large ); ?>"><?php echo get_the_title( $course_id ); ?></h2>
+<h2 style="<?php echo esc_attr( $large ); ?>"><?php echo get_the_title( $lesson_id ); ?></h2>
 
 <hr/>
 
